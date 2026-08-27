@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "SJPL Book Importer",
+  "version": "0.1.0",
+  "description": "Import book metadata from supported booksellers into the San José Public Library purchase suggestion form for review before manual submission.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.sjpl.org/*",
+    "https://amazon.com/*",
+    "https://*.amazon.com/*",
+    "https://walmart.com/*",
+    "https://*.walmart.com/*",
+    "https://barnesandnoble.com/*",
+    "https://*.barnesandnoble.com/*",
+    "https://bookshop.org/*",
+    "https://*.bookshop.org/*",
+    "https://thriftbooks.com/*",
+    "https://*.thriftbooks.com/*",
+    "https://bookoutlet.com/*",
+    "https://*.bookoutlet.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Import book to SJPL"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://amazon.com/*",
+        "https://*.amazon.com/*",
+        "https://walmart.com/*",
+        "https://*.walmart.com/*",
+        "https://barnesandnoble.com/*",
+        "https://*.barnesandnoble.com/*",
+        "https://bookshop.org/*",
+        "https://*.bookshop.org/*",
+        "https://thriftbooks.com/*",
+        "https://*.thriftbooks.com/*",
+        "https://bookoutlet.com/*",
+        "https://*.bookoutlet.com/*"
+      ],
+      "js": [
+        "source.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.sjpl.org/purchase/",
+        "https://www.sjpl.org/purchase/*"
+      ],
+      "js": [
+        "sjpl.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

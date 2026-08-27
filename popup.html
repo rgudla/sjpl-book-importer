@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SJPL Book Importer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main>
+  <h1>Import book to SJPL</h1>
+  <div id="site" class="site"></div>
+
+  <label>
+    Learned about
+    <input id="sourceLabel" type="text">
+    <small>Detected from the current bookseller. Editable and remembered per site.</small>
+  </label>
+
+  <label>
+    Library used most
+    <input id="library" type="text">
+    <small>Configurable and remembered for future imports.</small>
+  </label>
+
+  <div class="buttons">
+    <button id="import" class="primary">Import this book → SJPL</button>
+    <button id="save">Save settings</button>
+  </div>
+
+  <div id="status"></div>
+  <p class="foot">The SJPL form opens in a new tab. Review it before submitting.</p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>
